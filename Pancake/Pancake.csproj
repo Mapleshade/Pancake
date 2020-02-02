@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+		<PackageId>Pancake</PackageId>
+		<Version>1.0.1</Version>
+		<Authors>gazizova_ea</Authors>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
+	  <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="LICENSE.txt" />
+	  <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.4" />
+    </ItemGroup>
+
+</Project>
