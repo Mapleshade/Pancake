@@ -5,7 +5,7 @@ using Pancake.Contexts;
 
 namespace Pancake.Services
 {
-    public class RandomWordsService
+    public class RandomWordsService : IDisposable
     {
         public bool IsInitialized { get; private set; }
         private PancakeContext _db;
@@ -41,7 +41,7 @@ namespace Pancake.Services
             {
                 var count = _db.Words.Count();
                 _randomInt = _random.Next(0, count);
-                return _db.Words.ToArray()[_randomInt].Word;
+                return _db.Words.Skip(_randomInt).First().Word;
             } 
             Console.WriteLine($"RandomWordsService isn't initialized!");
             return string.Empty;
@@ -58,7 +58,7 @@ namespace Pancake.Services
                     return string.Empty;
                 }
                 _randomInt = _random.Next(0, wordsFromDb.Count());
-                return wordsFromDb.ToArray()[_randomInt].Word;
+                return wordsFromDb.Skip(_randomInt).First().Word;
             }
             Console.WriteLine($"RandomWordsService isn't initialized!");
             return string.Empty;
