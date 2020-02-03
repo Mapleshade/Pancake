@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp2.2</TargetFramework>
 		<PackageId>Pancake</PackageId>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 		<Authors>gazizova_ea</Authors>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     </PropertyGroup>
