@@ -7,5 +7,6 @@ namespace Pancake.Models
         [Key] 
         public int Id { get; set; }
         public string Word { get; set; }
+        public string PartOfSpeech { get; set; }
     }
 }
