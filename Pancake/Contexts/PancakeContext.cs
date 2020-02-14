@@ -14,6 +14,11 @@ namespace Pancake.Contexts
             _connectionString = pancakeConfiguration.DBConnectionString;
         }
 
+        public PancakeContext()
+        {
+            _connectionString = "Host=localhost;Database=Words;Username=postgres;Password=marshmallow";
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql(_connectionString);

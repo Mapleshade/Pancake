@@ -27,14 +27,23 @@ namespace Pancake.Services
 
         public void AddWordsToDataBaseFromFile(string path)
         {
+            DeepMorphyService deepMorphyService = new DeepMorphyService();
+            deepMorphyService.Init();
             var words = File.ReadAllLines(path);
+            var dictionary = deepMorphyService.GetBestGramKeysOfWords(words);
             if (words.Length != 0)
             {
-                foreach (var word in words)
+                foreach (var word in dictionary)
                 {
-                    _db.Add(new WordsTableModel() {Word = word});
+                    _db.Add(new WordsTableModel()
+                    {
+                        Word = word.Key, 
+                        PartOfSpeech = word.Value["чр"]
+                    });
                 }
             }
+            _db.SaveChanges();
+            _db.Dispose();
         }
     }
 }
